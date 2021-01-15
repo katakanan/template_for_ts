@@ -10,6 +10,7 @@ module.exports = {
     },
 
     entry: './src/main.ts',
+    devtool: "source-map",
     output: {
         path: distPath,
     },
@@ -20,6 +21,19 @@ module.exports = {
                 test: /\.ts$/,
                 use: 'ts-loader',
             },
+            {
+                test: /\.css/,
+                use: [
+                    "style-loader",
+                    {
+                        loader: "css-loader",
+                        options: {
+                            url: false,
+                            sourceMap: true
+                        }
+                    }
+                ]
+            }
         ],
     },
 
