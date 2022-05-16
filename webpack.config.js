@@ -5,7 +5,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     mode: "development",
     devServer: {
-        contentBase: distPath,
+        static: {
+            directory: distPath
+        },
+        watchFiles: ["src/*"],
         open: true
     },
 
